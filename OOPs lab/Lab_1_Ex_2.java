@@ -23,6 +23,8 @@ public class Lab_1_Ex_2 {
 		
 		if (number == a)
 		System.out.println("The Number is a Palindrome");
+		else
+		System.out.println("The Number is not a Palindrome");
 		
 		scan.close();
 	}
