@@ -10,12 +10,19 @@ public class Lab_1_Ex_4 {
 		return flag;
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		Scanner scan = new Scanner(System.in);
 		int number = scan.nextInt();
 		boolean ans = isPrime(number);
 		if (ans == true) System.out.println("number is prime");
 		else System.out.println("number is not prime");
+
+		int N = scan.nextInt();
+		count = 0;
+		while(count <N){
+			if (isPrime(num))
+				System.out.print(num + " ");
+		}
 		scan.close();
 	}
 
