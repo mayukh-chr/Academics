@@ -88,22 +88,6 @@ void traverseDoublyLinkedList(struct DoublyLinkedList* list) {
   printf("\n");
 }
 
-int main() {
-  struct DoublyLinkedList* list = createDoublyLinkedList();
-
-  insertAtBeginning(list, 10);
-  insertAtBeginning(list, 20);
-  insertAtEnd(list, 30);
-  insertAtEnd(list, 40);
-
-  traverseDoublyLinkedList(list);
-
-  deleteNode(list, 20);
-
-  traverseDoublyLinkedList(list);
-
-  return 0;
-}
 
 int main() {
   struct DoublyLinkedList* list = createDoublyLinkedList();
