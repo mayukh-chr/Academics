@@ -1,4 +1,4 @@
-//doubly linked list functions: 1. creation, 2. insertion, 3.. deletion, 4. traversal
+//write a program to create a doubly linked list functions and should have the following functions: 1. creation, 2. insertion, 3.. deletion, 4. traversal
 
 
 #include <stdio.h>
