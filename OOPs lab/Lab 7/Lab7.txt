@@ -1,0 +1,232 @@
+Lab 7
+
+Q1. 
+
+package com.course.structure;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create objects of each type
+        Building building = new Building(10000, 3);
+        House house = new House(2000, 2, 3, 2);
+        School school = new School(50000, 1, 20, "Elementary");
+
+        // Access and modify fields using getter and setter methods
+        System.out.println("Building Square Footage: " + building.getSquareFootage());
+        building.setSquareFootage(15000);
+        System.out.println("Updated Building Square Footage: " + building.getSquareFootage());
+
+        System.out.println("House Bedrooms: " + house.getBedrooms());
+        house.setBedrooms(4);
+        System.out.println("Updated House Bedrooms: " + house.getBedrooms());
+
+        System.out.println("School Grade Level: " + school.getGradeLevel());
+        school.setGradeLevel("High School");
+        System.out.println("Updated School Grade Level: " + school.getGradeLevel());
+    }
+}
+
+Q2. 
+
+[pt1]
+package myPackages.p1;
+
+public class Maximum {
+    // Method to find the maximum among three integers
+    public static int max(int a, int b, int c) {
+        return Math.max(Math.max(a, b), c);
+    }
+
+    // Method to find the maximum among three floating-point numbers
+    public static double max(double a, double b, double c) {
+        return Math.max(Math.max(a, b), c);
+    }
+
+    // Method to find the maximum in an array of integers
+    public static int max(int[] arr) {
+        int max = arr[0];
+        for (int value : arr) {
+            if (value > max) {
+                max = value;
+            }
+        }
+        return max;
+    }
+
+    // Method to find the maximum in a matrix (2D array) of integers
+    public static int max(int[][] matrix) {
+        int max = matrix[0][0];
+        for (int[] row : matrix) {
+            for (int value : row) {
+                if (value > max) {
+                    max = value;
+                }
+            }
+        }
+        return max;
+    }
+}
+
+[pt2]
+
+package myPackages.p1;
+
+public class Main {
+    public static void main(String[] args) {
+        // Using the overloaded methods of the Maximum class
+
+        // Method to find the maximum among three integers
+        int maxInt = Maximum.max(5, 10, 2);
+        System.out.println("Maximum integer among three: " + maxInt);
+
+        // Method to find the maximum among three floating-point numbers
+        double maxDouble = Maximum.max(3.14, 2.71, 1.618);
+        System.out.println("Maximum double among three: " + maxDouble);
+
+        // Method to find the maximum in an array of integers
+        int[] arr = { 8, 2, 14, 7, 10 };
+        int maxInArray = Maximum.max(arr);
+        System.out.println("Maximum in the array: " + maxInArray);
+
+        // Method to find the maximum in a matrix (2D array) of integers
+        int[][] matrix = {
+            { 5, 8, 2 },
+            { 3, 12, 7 },
+            { 9, 4, 11 }
+        };
+        int maxInMatrix = Maximum.max(matrix);
+        System.out.println("Maximum in the matrix: " + maxInMatrix);
+    }
+}
+
+Q3
+
+[pt 1]
+public interface Series {
+    int getNext();    // Get the next number in the series
+    void reset();      // Reset the series
+    void setStart(int startValue); // Set the starting value for the series
+}
+[pt2]
+public class ByTwos implements Series {
+    private int start;
+    private int currentValue;
+
+    public ByTwos() {
+        start = 0;
+        currentValue = start;
+    }
+
+    public int getNext() {
+        int nextValue = currentValue;
+        currentValue += 2;
+        return nextValue;
+    }
+
+    public void reset() {
+        currentValue = start;
+    }
+
+    public void setStart(int startValue) {
+        start = startValue;
+        currentValue = start;
+    }
+}
+[pt3]
+public class SeriesDemo {
+    public static void main(String[] args) {
+        Series series = new ByTwos();
+
+        // Set the starting value and print the series
+        series.setStart(5);
+        System.out.println("Series starting from 5:");
+        for (int i = 0; i < 5; i++) {
+            System.out.print(series.getNext() + " ");
+        }
+
+        // Reset the series and print again
+        series.reset();
+        System.out.println("\nSeries after resetting:");
+        for (int i = 0; i < 5; i++) {
+            System.out.print(series.getNext() + " ");
+        }
+    }
+}
+
+Q4
+
+// Define the Student class
+class Student {
+    private int rollNo;
+    private int marks;
+
+    public void putNumber(int rollNo) {
+        this.rollNo = rollNo;
+    }
+
+    public int getNumber() {
+        return rollNo;
+    }
+
+    public void putMarks(int marks) {
+        this.marks = marks;
+    }
+
+    public int getMarks() {
+        return marks;
+    }
+}
+
+// Define the Sports interface
+interface Sports {
+    void putGrade();
+}
+
+// Define the Result class that implements Sports
+class Result extends Student implements Sports {
+    private char sportsGrade;
+
+    // Constructor for Result class
+    public Result(int rollNo, int marks, char sportsGrade) {
+        putNumber(rollNo);
+        putMarks(marks);
+        this.sportsGrade = sportsGrade;
+    }
+
+    // Implement the putGrade method from the Sports interface
+    public void putGrade() {
+        System.out.println("Sports Grade: " + sportsGrade);
+    }
+
+    // Generate the final result based on marks and sports grade
+    public void generateResult() {
+        int totalMarks = getMarks();
+        char grade = 'F'; // Default grade
+
+        if (totalMarks >= 80) {
+            grade = 'A';
+        } else if (totalMarks >= 60) {
+            grade = 'B';
+        } else if (totalMarks >= 40) {
+            grade = 'C';
+        }
+
+        System.out.println("Total Marks: " + totalMarks);
+        System.out.println("Academic Grade: " + grade);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a Result object with rollNo, marks, and sportsGrade
+        Result studentResult = new Result(101, 75, 'B');
+
+        // Display student details
+        System.out.println("Roll No: " + studentResult.getNumber());
+        System.out.println("Academic Marks: " + studentResult.getMarks());
+
+        // Calculate and display the final result
+        studentResult.putGrade();
+        studentResult.generateResult();
+    }
+}
