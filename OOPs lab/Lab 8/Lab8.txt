@@ -1,0 +1,149 @@
+Lab 8
+
+Q1.
+class PushException extends Exception {
+    public PushException(String message) {
+        super(message);
+    }
+}
+
+class PopException extends Exception {
+    public PopException(String message) {
+        super(message);
+    }
+}
+
+class Stack {
+    private int maxSize;
+    private int[] stackArray;
+    private int top;
+
+    public Stack(int size) {
+        maxSize = size;
+        stackArray = new int[maxSize];
+        top = -1;
+    }
+
+    public void push(int value) throws PushException {
+        if (top >= maxSize - 1) {
+            throw new PushException("Stack is full. Cannot push " + value);
+        } else {
+            stackArray[++top] = value;
+        }
+    }
+
+    public int pop() throws PopException {
+        if (top < 0) {
+            throw new PopException("Stack is empty. Cannot pop.");
+        } else {
+            return stackArray[top--];
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Stack stack = new Stack(3);
+
+        try {
+            stack.push(1);
+            stack.push(2);
+            stack.push(3);
+
+            // Attempt to push when the stack is full
+            stack.push(4);
+        } catch (PushException e) {
+            System.out.println("PushException: " + e.getMessage());
+        }
+
+        try {
+            System.out.println("Popped: " + stack.pop());
+            System.out.println("Popped: " + stack.pop());
+            System.out.println("Popped: " + stack.pop());
+
+            // Attempt to pop when the stack is empty
+            stack.pop();
+        } catch (PopException e) {
+            System.out.println("PopException: " + e.getMessage());
+        }
+    }
+}
+
+A1
+PushException: Stack is full. Cannot push 4
+Popped: 3
+Popped: 2
+Popped: 1
+PopException: Stack is empty. Cannot pop.
+
+Q2
+
+import java.util.Scanner;
+
+class InvalidDayException extends Exception {
+    public InvalidDayException(String message) {
+        super(message);
+    }
+}
+
+class InvalidMonthException extends Exception {
+    public InvalidMonthException(String message) {
+        super(message);
+    }
+}
+
+class CurrentDate {
+    private int day;
+    private int month;
+    private int year;
+
+    public void createDate() throws InvalidDayException, InvalidMonthException {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter day: ");
+        day = scanner.nextInt();
+
+        System.out.print("Enter month: ");
+        month = scanner.nextInt();
+
+        System.out.print("Enter year: ");
+        year = scanner.nextInt();
+
+        scanner.close();
+
+        if (day < 1 || day > 31) {
+            throw new InvalidDayException("Invalid day. Day must be between 1 and 31.");
+        }
+
+        if (month < 1 || month > 12) {
+            throw new InvalidMonthException("Invalid month. Month must be between 1 and 12.");
+        }
+    }
+
+    public void displayCurrentDate() {
+        System.out.println("Current Date: " + day + "/" + month + "/" + year);
+    }
+}
+
+public class TestCurrentDate {
+    public static void main(String[] args) {
+        CurrentDate currentDate = new CurrentDate();
+
+        try {
+            currentDate.createDate();
+            currentDate.displayCurrentDate();
+        } catch (InvalidDayException | InvalidMonthException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+A2
+Enter day: 40
+Enter month: 5
+Enter year: 2023
+Error: Invalid day. Day must be between 1 and 31.
+
+Q3
+
+???
