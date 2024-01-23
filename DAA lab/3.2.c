@@ -7,20 +7,24 @@ void selectionsort(int arr[], int n){
     int i ,j, temp, minindex;
     for(i=0;i<n-1; i++){
             minindex = i;
-        for(j=i+1;j<n-i-1;j++){
+        for(j=i+1;j<n-i;j++){
            if(arr[j] <arr[minindex]){
                 opcount++;
                 minindex = j;
            }
-    if (minindex != i){
+
+        }
+        if (minindex != i){
             opcount++;
         int temp = arr[i];
         arr[i] = arr[minindex];
         arr[minindex]= temp;
+
+
     }
-        }
     }
 }
+
 
 
 
