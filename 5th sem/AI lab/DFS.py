@@ -21,6 +21,7 @@ def dfs_search(graph, start, target, visited=None):
                 return True
     return False
 
-target_node = 'E'
+target_node = str(input("Enter the Node you want to search (A-F): "))
+
 if not dfs_search(graph, 'A', target_node):
     print("\nTarget node not found.")
