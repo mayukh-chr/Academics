@@ -1,27 +1,23 @@
-graph = {
-    'A' : ['B', 'C'],
-    'B' : ['D', 'E'],
-    'C' : ['F'],
-    'D' : [],
-    'E' : ['F'],
-    'F' : []
-}
+def dfs(node, graph, visited, component):
+    component.append(node)
+    visited[node] = True
 
-def dfs_search(graph, start, target, visited=None):
-    if visited is None:
-        visited = set()
-    visited.add(start)
-    print(start, end=' ')
-    if start == target:
-        print("\nTarget node found!")
-        return True
-    for next in graph[start]:
-        if next not in visited:
-            if dfs_search(graph, next, target, visited):
-                return True
-    return False
+    for child in graph[node]:
+        if not visited[child]:
+            dfs(child, graph, visited, component)
 
-target_node = str(input("Enter the Node you want to search (A-F): "))
 
-if not dfs_search(graph, 'A', target_node):
-    print("\nTarget node not found.")
+if __name__ == "__main__":
+    graph = {
+        0:[2],
+        1:[2,3],
+        2:[0,1,4],
+        3:[1,4],
+        4:[2,3] 
+    }
+    node = 0
+    visited = [False]*len(graph)
+    component = []
+    dfs(node, graph, visited, component)
+    print(f"following is the DFS: {component}")
+
