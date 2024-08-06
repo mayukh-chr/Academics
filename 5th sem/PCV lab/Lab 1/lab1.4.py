@@ -3,7 +3,7 @@
 import cv2 
   
 #For Video File 
-capture=cv2.VideoCapture("C:/Users/Student/Documents/90198/CV lab/video.mp4") 
+capture=cv2.VideoCapture("Lab 1/video.mp4") 
   
 #For webcam 
 # capture=cv2.VideoCapture(0) 
