@@ -2,7 +2,7 @@
 import cv2 
 
 # reading the video 
-source = cv2.VideoCapture("Lab 1/video.mp4") 
+source = cv2.VideoCapture("video.mp4") 
 
 # running the loop 
 while True: 
