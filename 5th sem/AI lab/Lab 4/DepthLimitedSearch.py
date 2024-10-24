@@ -14,4 +14,4 @@ Graph = {
     5: [2]
 }
 
-depth_limited_dfs(graph=Graph, start=0, depth=0, limit=5)
+depth_limited_dfs(graph=Graph, start=0, depth=0, limit=3)

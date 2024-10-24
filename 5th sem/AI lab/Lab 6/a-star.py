@@ -1,11 +1,14 @@
 import heapq
 def astar(graph, start, goal, heuristic):
-    # Initialize the frontier and explored set
+
+    # Initialize the frontier and visited set
     frontier = [(heuristic[start], start)]
-    explored = set()
+    visited = set()
+
     # Initialize the cost and path dictionaries
     cost = {start: 0}
     path = {start: None}
+
     while frontier:
     # Pop the node with the Lowest cost from the frontier
         _, current = heapq.heappop(frontier)
@@ -18,7 +21,8 @@ def astar(graph, start, goal, heuristic):
                 current = path[current]
             path_list.reverse()
             return path_list
-        explored. add(current)
+        visited. add(current)
+
         # Expand the neighbors of the current node
         for neighbor in graph[current]:
             new_cost = cost[current] + graph[current] [neighbor]

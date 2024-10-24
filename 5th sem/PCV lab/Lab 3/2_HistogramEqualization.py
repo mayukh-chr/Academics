@@ -2,16 +2,16 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-plt.figure(figsize=(20,20))
+plt.figure(figsize=(10,10))
 
 # Read and convert image to grayscale
-img = cv2.imread('Lab 3/image.jpg')
+img = cv2.imread('seeds.jpg')
 img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # Plot original grayscale image
 plt.subplot(221)
 plt.title('Original Grayscale')
-plt.imshow(img_gray, cmap='gray')
+plt.imshow(img, cmap='gray')
 
 # Calculate and plot histogram of original grayscale image
 hist_original = cv2.calcHist([img_gray],[0],None,[256],[0,256])

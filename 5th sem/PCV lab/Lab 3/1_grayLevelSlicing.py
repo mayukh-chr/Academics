@@ -8,9 +8,9 @@ max_range =  200
 for i in range (row):
     for j in range(column):
         if img[i,j]>min_range and img[i,j]<max_range:
-            img1[i,j] = 255
+            img[i,j] = 255
         else:
-            img1[i,j] = 0
+            img[i,j] = 0
 cv2.imshow('original.jpg', img)
 cv2.imwrite('original.jpg', img)
 cv2.imshow('slicedimage.jpg', img1)

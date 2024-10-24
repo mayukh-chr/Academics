@@ -55,4 +55,4 @@ print("Steps: ")
 
 # Call the function and pass the
 # initial amount of water present in both jugs.
-waterJugSolver(0, 0)
+waterJugSolver(4, 3)
