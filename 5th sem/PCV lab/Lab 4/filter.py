@@ -3,7 +3,8 @@ import numpy as np
 img = cv2.imread('hehe.jpg', cv2.IMREAD_GRAYSCALE)
 img_noisy = cv2.imread('hehe_noisy.jpg', cv2.IMREAD_GRAYSCALE)
 
-kernel = np.ones((5,5), np.float32)/25
+kernel = np.ones((5,5))/25
+
 mean_filtered = cv2.filter2D(img_noisy, -1, kernel)
 
 
@@ -13,8 +14,7 @@ median_filtered = cv2.medianBlur(img_noisy, 5)
 img_noisy = cv2.GaussianBlur(img_noisy, (5,5), 0)
 
 
-sharpened_image2 = cv2.Laplacian(img, cv2.CV_64F)
-
+sharpened_image2 = cv2.Laplacian(img, 6)
 
 
 # Display filtered images

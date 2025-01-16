@@ -17,7 +17,7 @@ print(f"Number of keypoints in image 1: {len(keypoints_1)}")
 print(f"Number of keypoints in image 2: {len(keypoints_2)}")
 
 # create feature matcher
-bf = cv2.BFMatcher(cv2.NORM_L1, crossCheck=True)
+bf = cv2.BFMatcher(2, crossCheck=True)
 # match descriptors of both images
 matches = bf.match(descriptors_1, descriptors_2)
 

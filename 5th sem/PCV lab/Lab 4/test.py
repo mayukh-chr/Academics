@@ -12,7 +12,7 @@ median = cv2.medianBlur(img, 5)
 
 gauss = cv2.GaussianBlur(img, (5,5), 0)
 
-lablace = cv2.Laplacian(img, cv2.CV_64F)
+lablace = cv2.Laplacian(img, 6)
 
 cv2.imshow("mean,", mean)
 

@@ -3,7 +3,7 @@
 import cv2 
   
 #For Video File 
-capture=cv2.VideoCapture("./lab 1/video.mp4") 
+capture=cv2.VideoCapture("video.mp4") 
   
 #For webcam 
 # capture=cv2.VideoCapture(0) 
@@ -20,6 +20,7 @@ print("CAP_PROP_SATURATION : '{}'".format(capture.get(cv2.CAP_PROP_SATURATION)))
 print("CAP_PROP_HUE : '{}'".format(capture.get(cv2.CAP_PROP_HUE))) 
 print("CAP_PROP_GAIN  : '{}'".format(capture.get(cv2.CAP_PROP_GAIN))) 
 print("CAP_PROP_CONVERT_RGB : '{}'".format(capture.get(cv2.CAP_PROP_CONVERT_RGB))) 
+
   
 # release window 
 capture.release() 
